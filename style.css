@@ -1,26 +1,300 @@
-* link rekl 
-{ 
+/* Variáveis CSS para cores */
+:root {
+    --primary-color: #6a0572; /* Um roxo vibrante */
+    --secondary-color: #ab47bc; /* Um tom mais claro de roxo */
+    --dark-color: #2c3e50; /* Azul escuro quase preto */
+    --light-color: #ecf0f1; /* Cinza claro */
+    --accent-color: #f39c12; /* Laranja para destaque */
+    --text-color: #34495e; /* Azul acinzentado */
+}
+
+/* Reset básico */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-color);
+    background-color: var(--light-color);
 }
 
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden; /* Limpa floats */
+    padding: 20px 0;
+}
+
+/* Header */
 header {
-    background-color: #2e7d32; /* Verde rural */
-    color: white;
-    padding: 1rem;
-    text-align: center; 
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header h1 {
+    font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
-    color: #fbc02d;  * Cor diferente (amarelo dourado) */
-    text-align: center; header h1/* Centralizado */
-     header
+    margin: 0;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+header nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    background: url('https://via.placeholder.com/1920x800/6a0572/ab47bc?text=Design+Criativo') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay escuro */
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--dark-color);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background: #e67e22; /* Um tom mais escuro do laranja */
+    transform: translateY(-3px);
+}
+
+/* Services Section */
+.services {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+.services h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    color: var(--dark-color);
+    position: relative;
+    display: inline-block;
+}
+
+.services h3::after {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 3px;
+    background: var(--primary-color);
+    bottom: -10px;
+    left: 15%;
+}
+
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background: var(--light-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid var(--primary-color);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* Ícones (simulados com texto grande) */
+.icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 900; /* Para deixar os "ícones" mais robustos */
+}
+
+/* Você pode substituir estes por SVGs ou uma biblioteca de ícones real se quiser, mas para o exemplo, isso serve */
+.icon-web::before { content: '🌐'; }
+.icon-branding::before { content: '✨'; }
+.icon-graphic::before { content: '🎨'; }
+
+
+/* Footer */
+footer {
+    background: var(--dark-color);
+    color: var(--light-color);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para responsividade */
+}
+
+.social-links a {
+    color: var(--light-color);
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+    border: 2px solid var(--light-color);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    header nav ul li {
+        margin: 0 10px 10px 10px;
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .service-cards {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+
+    footer .container {
+        flex-direction: column;
+    }
+
+    .social-links {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
 }
