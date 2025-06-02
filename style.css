@@ -1,7 +1,7 @@
 /* Variáveis CSS para cores */
 :root {
-    --primary-color: #6a0572; /* Um roxo vibrante */
-    --secondary-color: #ab47bc; /* Um tom mais claro de roxo */
+    --primary-color: #3b5814; /* Um verde vibrante */
+    --secondary-color: #4e7542; /* Um tom mais claro de verde*/
     --dark-color: #2c3e50; /* Azul escuro quase preto */
     --light-color: #ecf0f1; /* Cinza claro */
     --accent-color: #f39c12; /* Laranja para destaque */
@@ -213,10 +213,8 @@ header nav ul li a:hover::after {
     font-weight: 900; /* Para deixar os "ícones" mais robustos */
 }
 
-/* Você pode substituir estes por SVGs ou uma biblioteca de ícones real se quiser, mas para o exemplo, isso serve */
-.icon-web::before { content: '🌐'; }
 .icon-branding::before { content: '✨'; }
-.icon-graphic::before { content: '🎨'; }
+.icon-graphic::before { content: ''; }
 
 
 /* Footer */
